@@ -1,2 +1,8 @@
 virtual/
 *.pyc
+.env
+__pycache__/
+*.pyc
+instance/
+.vscode/
+.idea
