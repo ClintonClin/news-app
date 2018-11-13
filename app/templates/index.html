@@ -1,3 +1,50 @@
-<h1>Mega news</h1>
-<h3>News or everyone</h3>
-{{killer}}
+{% extends 'base.html'%}
+{% import 'macros.html' as macro %}
+
+{% block content%}
+<link href="https://fonts.googleapis.com/css?family=Black+Ops+One" rel="stylesheet">
+<link rel="stylesheet" href="{{url_for('static', filename='css/index.css')}}">
+<h1 class='pagename'>Mega News</h1>
+<h3>News for everyone</h3>
+
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 my-3" style="padding-bottom: 20px;">
+    <!-- General News -->
+    <h3>General News!</h3>
+    <hr>
+    <div class="is-flex border border-info py-3" style="display: flex; flex-wrap: wrap;">
+        {{macro.displaySourceList(general)}}
+    </div>
+</div>
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="background:#FBFCFC; padding-bottom: 50px;">
+    <!-- Business News -->
+    <h3>Business News Sources</h3>
+    <hr>
+    <div class="is-flex" style="display: flex; flex-wrap: wrap;">
+        {{macro.displaySourceList(business)}}
+    </div>
+</div>
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="padding-bottom: 50px;">
+    <!-- Technology News -->
+    <h3>Technology News Sources</h3>
+    <hr>
+    <div class="is-flex" style="display: flex; flex-wrap: wrap;">
+        {{macro.displaySourceList(technology)}}
+    </div>
+</div>
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="background:#FBFCFC; padding-bottom: 50px;">
+    <!-- Sports News -->
+    <h3>Sports News Sources</h3>
+    <hr>
+    <div class="is-flex" style="display: flex; flex-wrap: wrap;">
+        {{macro.displaySourceList(sports)}}
+    </div>
+</div>
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="padding-bottom: 50px;">
+    <!-- Entertainment News -->
+    <h3>Entertainment News Sources</h3>
+    <hr>
+    <div class="is-flex" style="display: flex; flex-wrap: wrap;">
+        {{macro.displaySourceList(entertainment)}}
+    </div>
+</div>
+{%endblock%}
