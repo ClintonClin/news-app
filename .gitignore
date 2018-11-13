@@ -6,3 +6,5 @@ __pycache__/
 instance/
 .vscode/
 .idea
+get-pip.py
+start.sh
