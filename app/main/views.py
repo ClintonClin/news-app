@@ -1,11 +1,11 @@
 from flask import render_template, request, redirect, url_for
-from . import app
-from .requests import get_sources, get_articles, search_articles
+from . import main
+from ..requests import get_sources, get_articles, search_articles
 
 #Views
 
 
-@app.route('/')
+@main.route('/')
 def index():
     '''
     View root page function that returns the index page and its data.
@@ -42,7 +42,7 @@ def index():
     return render_template('index.html', title=title, science=science_sources, business=business_sources, entertainment=entertainment_sources, sports=sports_sources, health=health_sources, general=general_sources, technology=technology_sources)
 
 
-@app.route('/source/<id>')
+@main.route('/source/<id>')
 def source(id):
     '''
     View source page function that returns the source and its articles.
@@ -54,7 +54,7 @@ def source(id):
     return render_template('source.html', articles=all_articles, title=title, id_up=id_up)
 
 
-@app.route('/search/')
+@main.route('/search/')
 def search_main():
     '''
     View root page function that returns the search page and the form.
@@ -70,7 +70,7 @@ def search_main():
         return render_template('search.html', title=title)
 
 
-@app.route('/search/<query>')
+@main.route('/search/<query>')
 def search(query):
     '''
     View function to display the search results
