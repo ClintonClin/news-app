@@ -9,9 +9,9 @@ from ..requests import get_sources, get_articles, search_articles
 def index():
     '''
     View root page function that returns the index page and its data.
-    '''
+    ''' 
 
-    title = 'Home - jamboNews'
+    title = 'Home - NewsApp'
 
     #Getting Science Sources
     science_sources = get_sources('science')
@@ -34,12 +34,12 @@ def index():
     #Getting Technology Sources
     technology_sources = get_sources('technology')
 
-    # search_article = request.args.get('article_query')
+    search_article = request.args.get('article_query')
 
-    # if search_article:
-    #     return redirect(url_for('search',query=search_article))
-    # else:
-    return render_template('index.html', title=title, science=science_sources, business=business_sources, entertainment=entertainment_sources, sports=sports_sources, health=health_sources, general=general_sources, technology=technology_sources)
+    if search_article:
+        return redirect(url_for('search',query=search_article))
+    else:
+        return render_template('index.html', title=title, science=science_sources, business=business_sources, entertainment=entertainment_sources, sports=sports_sources, health=health_sources, general=general_sources, technology=technology_sources)
 
 
 @main.route('/source/<id>')
@@ -48,7 +48,7 @@ def source(id):
     View source page function that returns the source and its articles.
     '''
     all_articles = get_articles(id)
-    title = f'jamboNews -- {id.upper()}'
+    title = f'NewsApp -- {id.upper()}'
     id_up = id.upper()
 
     return render_template('source.html', articles=all_articles, title=title, id_up=id_up)
@@ -65,7 +65,7 @@ def search_main():
 
     if search_article:
         return redirect(url_for('.search', query=search_article))
-        # return render_template('search.html', title=title)
+        
     else:
         return render_template('search.html', title=title)
 
