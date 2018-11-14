@@ -51,7 +51,7 @@ def source(id):
     title = f'NewsApp -- {id.upper()}'
     id_up = id.upper()
 
-    return render_template('source.html', articles=all_articles, title=title, id_up=id_up)
+    return render_template('article.html', articles=all_articles, title=title, id_up=id_up)
 
 
 @main.route('/search/')
